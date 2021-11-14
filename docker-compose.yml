@@ -1,0 +1,16 @@
+version: '3'
+services:
+  db:
+    image: postgres:12.8
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: adminpass
+      POSTGRES_USER: admin
+      POSTGRES_DB: authentication
+    volumes:
+      - refreshtoken:/var/lib/postgresql/data
+    ports:
+      - 5433:5432
+
+volumes:
+  refreshtoken:
